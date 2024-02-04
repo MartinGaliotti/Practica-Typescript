@@ -1,15 +1,20 @@
 type HeroId = `${string}-${string}-${string}-${string}-${string}`;
 type HeroPowerSacale = "low" | "medium" | "high";
 
-type Hero = {
-  readonly id?: HeroId;
+type HeroBasic = {
   name: string;
   age: number;
   power: HeroPowerSacale;
+};
+
+type HeroAdditionalInfo = {
+  readonly id?: HeroId;
   isActive?: boolean;
 };
 
-const createHero = (hero: Hero): Hero => {
+type Hero = HeroBasic & HeroAdditionalInfo;
+
+const createHero = (hero: HeroBasic): Hero => {
   const { name, age, power } = hero;
   return { id: crypto.randomUUID(), name, age, power, isActive: true };
 };
