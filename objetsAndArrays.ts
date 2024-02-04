@@ -1,3 +1,4 @@
+// Objetos
 type HeroId = `${string}-${string}-${string}-${string}-${string}`;
 type HeroPowerSacale = "low" | "medium" | "high";
 
@@ -20,3 +21,32 @@ const createHero = (hero: HeroBasic): Hero => {
 };
 
 const newHero = createHero({ name: "Batman", age: 20, power: "low" });
+
+// Obtener tipos de una variable
+const example = {
+  name: "string",
+  age: "number",
+  power: "string",
+};
+
+type Example = typeof example;
+
+// Arrays
+const heroes: Hero[] = [];
+
+heroes.push(newHero);
+
+const numbersOrStrings: (number | string)[] = [];
+numbersOrStrings.push(1);
+numbersOrStrings.push("1");
+
+// Example TicTacToe
+type Cell = "X" | "O" | "";
+
+type GameBoard = [[Cell, Cell, Cell], [Cell, Cell, Cell], [Cell, Cell, Cell]];
+
+const board: GameBoard = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
+];
